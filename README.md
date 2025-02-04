@@ -1,0 +1,2 @@
+# py-google-search-news
+This repository was created with the purpose of providing an example of how to perform automated news searches on Google using the BeautifulSoup (bs4) library. The bot is configured through a [config.ini](https://github.com/web3sdruvs/py-google-search-news/blob/main/src/config.ini) file, where users can define parameters such as keywords and date filters to customize the search.

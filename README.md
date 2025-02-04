@@ -26,3 +26,6 @@ Bitcoin address:
 ```bash
 bc1qjgz6y7sh2rw5fl55432rr6n6vs9hrhhhsn2eft
 ```
+
+# License and Credits
+- **pygooglenews**: The pygooglenews library from [pygooglenews](https://github.com/kotartemiy/pygooglenews) was used as a reference in this project for copying the `googlenews.py` package. It is distributed under the MIT license.

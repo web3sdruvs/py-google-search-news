@@ -21,7 +21,7 @@ class GoogleSearch:
           'Upgrade-Insecure-Requests': '1'
     }
     
-  def __pages(self, query, tbs):
+  def __pages(self, query, tbs, _first_page=True):
     '''
     Retrieves search results from Google for multiple pages.
 
@@ -42,12 +42,10 @@ class GoogleSearch:
 
       if len(_html_content) == 0:
         break
-      _page += 10
-      
+     
       for i in _html_content:
         _title = i.h3.text
         _desc = i.find(class_="BNeawe s3v9rd AP7Wnd").text
-        #_desc = _desc.rsplit('.', 1)[0].strip() #exlude last text ".3 dias atrás"
         _href = i.get('href')
         _parsed_href = urllib.parse.urlparse(_href)
         _real_url = urllib.parse.parse_qs(_parsed_href.query)['url'][0] if 'url' in urllib.parse.parse_qs(_parsed_href.query) else ''
@@ -56,6 +54,12 @@ class GoogleSearch:
         _tmp_all_google_search_list.append(_real_url)
         _all_google_search_list.append(_tmp_all_google_search_list.copy())
         _tmp_all_google_search_list.clear()
+        
+      if _first_page:
+        break
+
+      _page += 10
+
     return _all_google_search_list
 
   def __top_search_parser(self, query, tbs, _page=0):

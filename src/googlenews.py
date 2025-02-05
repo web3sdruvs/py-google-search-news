@@ -11,8 +11,8 @@ class GoogleNews:
         Initialize a NewsFeed object with the specified language and country.
 
         Parameters:
-            lang (str): The language code for the news feed. Default is 'pt' (Portuguese).
-            country (str): The country code for the news feed. Default is 'BR' (Brazil).
+            lang (str): The language code for the news feed. Default is 'en' (English).
+            country (str): The country code for the news feed. Default is 'US' (US).
 
         Attributes:
             lang (str): The language code for the news feed.

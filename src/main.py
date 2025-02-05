@@ -33,14 +33,7 @@ value_search = config.get_search().encode('latin-1').decode('utf-8').split(',')
 value_exclude = config.get_exclude().encode('latin-1').decode('utf-8').split(',')
 value_exclude.extend(value_black_list)
 value_filter_period = config.get_period()
-start = Path('../ref/start.txt')
-
-if start.is_file():
-  info(f'Start is {start.is_file()}')
-  os.unlink(start) 
-else:
-  info(f'Start is {start.is_file()}')
-  exit()
+info(f'Start is script')
 
 def dict_for_join(list, index=1):
   '''
@@ -73,7 +66,7 @@ def list_left_join(list, dict):
           from the dictionary corresponding to the key in the tuple. If the key is not found in the
           dictionary, None is appended.
   '''
-  _list = [_i + [dict.get(_i[0], 'Não localizado')] for _i in list]
+  _list = [_i + [dict.get(_i[0], 'Not found')] for _i in list]
   return _list
 
 def filter_contains_keyword(data):
@@ -121,12 +114,12 @@ while retries < 5:
       all_news_desc_list.extend(desc_list)
       news_list = GoogleNews().search(f'{i} when:{value_filter_period}d',i)
       all_news_list.extend(news_list)
-      sleep(0.500)
+      sleep(0.700)
     break
   except Exception as e:
     error(f'Retries in {paused} seconds -> {e}')
     sleep(paused)
-
+print(all_news_desc_list)
 all_news_desc_list = filter_contains_duplicate(all_news_desc_list)
 all_news_desc_list = list(filter(filter_contains_keyword, all_news_desc_list))
 desc_news_desc_dict = dict_for_join(all_news_desc_list, 1)

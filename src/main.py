@@ -119,7 +119,7 @@ while retries < 5:
   except Exception as e:
     error(f'Retries in {paused} seconds -> {e}')
     sleep(paused)
-print(all_news_desc_list)
+
 all_news_desc_list = filter_contains_duplicate(all_news_desc_list)
 all_news_desc_list = list(filter(filter_contains_keyword, all_news_desc_list))
 desc_news_desc_dict = dict_for_join(all_news_desc_list, 1)

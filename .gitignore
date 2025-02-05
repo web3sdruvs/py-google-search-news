@@ -1,0 +1,44 @@
+# Bytecode files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+env/
+*.venv
+pip-log.txt
+pip-delete-this-directory.txt
+
+# IDE configuration files
+.idea/
+.vscode/
+*.swp
+
+# Logs and dumps
+logs/
+*.log
+*.out
+*.pid
+*.seed
+*.cover
+
+# Dependencies
+*.egg-info/
+dist/
+build/
+
+# Environment variables
+.env
+*.ini
+*.cfg
+*.toml
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# Temporary files
+*.tmp
+*.bak
+.DS_Store
+Thumbs.db

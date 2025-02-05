@@ -3,6 +3,11 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# Data files
+*.csv
+*.txt
+*.xlsx
+
 # Virtual environments
 venv/
 env/

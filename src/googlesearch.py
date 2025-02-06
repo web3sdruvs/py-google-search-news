@@ -78,7 +78,9 @@ class GoogleSearch:
           "q":query,
           "tbm":"nws",
           "tbs":tbs,
-          "start": _page
+          "start": _page,
+          "hl": "en",
+          "gl": "US"  
     }
     try:
       _text = requests.get(self.BASE_URL, headers = self.HEADER, params = _params)

@@ -102,19 +102,24 @@ def filter_contains_duplicate(data):
 
 all_news_list = []
 all_news_desc_list = []
-retries = paused = 0
+retries = paused = count_value_search = 0
 
 while retries < 5:
   retries += 1
   paused = 2 ** retries
   try:
-    for i in value_search:
-      info(f'Search now is: {i}')
-      desc_list = GoogleSearch().search(i, 'qdr:m')
+    while True:
+      info(f'Search now is: {value_search[count_value_search]}')
+      desc_list = GoogleSearch().search(value_search[count_value_search], 'qdr:m')
       all_news_desc_list.extend(desc_list)
-      news_list = GoogleNews().search(f'{i} when:{value_filter_period}d',i)
+      news_list = GoogleNews().search(f'{value_search[count_value_search]} when:{value_filter_period}d',value_search[count_value_search])
       all_news_list.extend(news_list)
-      sleep(0.700)
+      sleep(0.500)
+      retries = 0 #resets effort for each term successfully searched
+      print((count_value_search))
+      if len(value_search) == count_value_search + 1:
+        break
+      count_value_search += 1
     break
   except Exception as e:
     error(f'Retries in {paused} seconds -> {e}')

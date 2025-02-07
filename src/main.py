@@ -116,7 +116,6 @@ while retries < 5:
       all_news_list.extend(news_list)
       sleep(0.500)
       retries = 0 #resets effort for each term successfully searched
-      print((count_value_search))
       if len(value_search) == count_value_search + 1:
         break
       count_value_search += 1
